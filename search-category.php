@@ -44,7 +44,7 @@ function searchcategory_posts_where( $where ) {
       if (empty($word) || !(strlen($word) > 2 || sizeof($words) == 1)) continue;
       $word = $wpdb->escape($word);
       if ($search != "") $search .= " $search_connector ";
-      $search .= "${posts}.post_content like '%${word}%'";
+      $search .= "(${posts}.post_content like '%${word}%' OR ${posts}.post_excerpt like '%${word}%' OR ${posts}.post_title like '%${word}%')";
     }
     $where .= " AND ($search)";
   }

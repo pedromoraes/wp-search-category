@@ -1,4 +1,4 @@
-<form method="GET" action="<?php echo $_SERVER[PHP_SELF]; ?>" class="search-category-form">
+<form method="GET" action="<?php echo $_SERVER['REQUEST_URI']; ?>" class="search-category-form">
   <?php foreach ($_GET as $key => $val): ?>
     <?php if ($key != SCPLUGIN_QUERY_ARG): ?><input type="hidden" value="<?php echo $val; ?>" name="<?php echo $key; ?>" /><?php endif; ?>
   <?php endforeach; ?>
